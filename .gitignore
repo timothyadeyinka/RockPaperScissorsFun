@@ -26,6 +26,9 @@ npm-debug.log*
 # /dist                # tracked (compiled site committed)
 /.next
 /out
+/sass
+/design
+/.github
 
 # IDEs and editors
 /.idea
@@ -39,3 +42,5 @@ npm-debug.log*
 .DS_Store
 Thumbs.db
 *.md
+*.json
+
