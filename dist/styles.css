@@ -53,6 +53,103 @@ body {
   font-family: var(--font-family-sans);
 }
 
+.choice {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: var(--color-white);
+}
+.choice img {
+  width: 45px;
+}
+.choice {
+  padding: 12px;
+  box-shadow: 0 6px rgba(0, 0, 0, 0.2);
+}
+.choice .inner {
+  animation: float 4s ease-in-out infinite;
+  box-shadow: inset 0 6px rgba(0, 0, 0, 0.15);
+  background: var(--color-white);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.choice .inner .paper {
+  background: linear-gradient(var(--color-blue-700), var(--color-blue-500));
+}
+.choice .inner .scissors {
+  background: linear-gradient(var(--color-gold-600), var(--color-gold-500));
+}
+.choice .inner .rock {
+  background: linear-gradient(var(--color-red-800), var(--color-red-600));
+}
+.choice .inner {
+  transition: transform 0.1s ease;
+}
+.choice:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.6), 0 10px rgba(0, 0, 0, 0.25);
+}
+.choice:hover {
+  box-shadow: 0 12px rgba(0, 0, 0, 0.25);
+}
+.choice:hover .inner {
+  transform: translateY(-6px);
+}
+.choice:active {
+  box-shadow: 0 4px rgba(0, 0, 0, 0.2);
+}
+.choice:active .inner {
+  transform: translateY(2px) scale(0.9);
+}
+@media (hover: hover) {
+  .choice:hover {
+    box-shadow: 0 12px rgba(0, 0, 0, 0.25);
+  }
+  .choice:hover .inner {
+    transform: translateY(-6px);
+  }
+}
+
+.paper {
+  top: -35px;
+  left: -20px;
+  box-shadow: inset 0 -6px var(--color-blue-700);
+}
+
+.scissors {
+  top: -35px;
+  right: -20px;
+  box-shadow: inset 0 -6px var(--color-gold-500);
+}
+
+.rock {
+  bottom: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: inset 0 -6px var(--color-red-800);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -63,6 +160,35 @@ body {
 }
 
 @media (max-width: 599px) {
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 2px solid var(--color-light-blue-500);
+    border-radius: 10px;
+    padding: 1rem;
+    margin: 1.5rem;
+  }
+  header .logo {
+    font-size: 1rem;
+    line-height: 1.1;
+    color: var(--color-white);
+  }
+  header .score-box {
+    background: var(--color-white);
+    border-radius: 6px;
+    padding: 0.5rem 1.2rem;
+    text-align: center;
+  }
+  header .score-box span {
+    font-size: 0.6rem;
+    letter-spacing: 1px;
+    color: var(--color-blue-700);
+  }
+  header .score-box span:nth-child(2) {
+    font-size: 2rem;
+    color: var(--color-blue-500);
+  }
   .rules-modal {
     position: fixed;
     inset: 0; /* top: 0, right: 0, bottom: 0, left: 0 */
@@ -101,6 +227,33 @@ body {
   .rules-modal > * {
     background: var(--color-white);
   }
+}
+header .score-box span:nth-child(2) {
+  font-weight: bold;
+}
+
+.game {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  margin: 4rem auto;
+}
+.game .triangle {
+  background: url("images/bg-triangle.svg") no-repeat center;
+  background-size: contain;
+  width: 100%;
+  height: 280px;
+}
+
+.rules-btn {
+  margin: 3rem auto;
+  display: block;
+  padding: 0.8rem 2.5rem;
+  background: transparent;
+  border: 1px solid var(--color-white);
+  border-radius: 8px;
+  color: var(--color-white);
+  letter-spacing: 2px;
 }
 
 /*# sourceMappingURL=styles.css.map */

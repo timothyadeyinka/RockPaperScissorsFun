@@ -24,7 +24,43 @@
     <!-- Score Rules You Picked The House Picked You Win You Lose Play Again -->
   </head>
   <body>
-    <button class="rules-btn">RULES</button>
+    <header class="header">
+      <h1 class="logo">
+        ROCK<br />
+        PAPER<br />
+        SCISSORS
+      </h1>
+
+      <div class="score-box">
+        <span>SCORE</span>
+        <span>12</span>
+      </div>
+    </header>
+
+    <!-- Main game background -->
+    <div class="game">
+      <div class="triangle"></div>
+
+      <!-- buttons go here -->
+      <!-- Choice buttons -->
+      <button class="choice paper">
+        <span class="inner">
+          <img src="images/icon-paper.svg" alt="Paper" />
+        </span>
+      </button>
+
+      <button class="choice scissors">
+        <span class="inner">
+          <img src="images/icon-scissors.svg" alt="Scissors" />
+        </span>
+      </button>
+
+      <button class="choice rock">
+        <span class="inner">
+          <img src="images/icon-rock.svg" alt="Rock" />
+        </span>
+      </button>
+    </div>
 
     <div class="rules-modal hidden">
       <h2 class="rules-title">RULES</h2>
@@ -37,6 +73,8 @@
 
       <button class="rules-close">X</button>
     </div>
+
+    <button class="rules-btn">RULES</button>
 
     <div class="attribution">
       Challenge by

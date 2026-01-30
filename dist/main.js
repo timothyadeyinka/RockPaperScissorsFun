@@ -19,3 +19,11 @@ const closeHandler = () => {
 
 openRulesBtn?.addEventListener(`click`, openHandler);
 closeRulesBtn?.addEventListener(`click`, closeHandler);
+
+// handling user choice click
+function updateState(state, updates) {
+  return Object.freeze({
+    ...state,
+    ...updates,
+  });
+}

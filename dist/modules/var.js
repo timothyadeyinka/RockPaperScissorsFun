@@ -5,6 +5,12 @@ export const SELECTORS = Object.freeze({
   closeRulesBtn: `.rules-close`,
 });
 
+export const RULES = Object.freeze({
+  rock: `scissors`,
+  scissors: `paper`,
+  paper: `rock`,
+});
+
 export const CSS = Object.freeze({
   bgRadial: `var(--bg-radial)`,
   colorPrimary: `var(--color-gold-500)`,
