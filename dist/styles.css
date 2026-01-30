@@ -1,0 +1,106 @@
+/******************************
+* Timothy Adeyinka 
+* *******************************
+* This is the main style page for 
+* this project. 
+* *******************************
+* Project Name is Rock Paper Scissors
+* *******************************
+* Initiated on 30 January, 2026. 
+* *******************************
+* Completed on ............. .
+*********************************/
+:root {
+  /* Primary */
+  --color-gold-500: hsl(39, 89%, 49%);
+  --color-gold-600: hsl(28, 76%, 44%);
+  --color-blue-500: hsl(230, 89%, 62%);
+  --color-blue-700: hsl(229, 64%, 46%);
+  --color-red-600: hsl(349, 71%, 52%);
+  --color-red-800: hsl(347, 75%, 35%);
+  --color-purple-600: hsl(261, 73%, 60%);
+  --color-purple-700: hsl(261, 51%, 44%);
+  --color-light-blue-400: hsl(189, 59%, 53%);
+  --color-light-blue-500: hsl(194, 58%, 42%);
+  --color-white: hsl(0, 100%, 100%);
+  /* Neutral */
+  --color-navy-900: hsl(229, 25%, 31%);
+  --color-blue-700-score: hsl(229, 64%, 46%);
+  --color-gray-600: hsl(246, 11%, 37%);
+  /* Background */
+  --bg-radial-start: hsl(214, 47%, 23%);
+  --bg-radial-end: hsl(237, 48%, 15%);
+  --bg-radial: radial-gradient(
+    circle at 10% 10%,
+    var(--bg-radial-start),
+    var(--bg-radial-end)
+  );
+  /* Fonts */
+  --font-family-sans:
+    "Barlow Semi Condensed", system-ui, -apple-system, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  --fw-600: 600;
+  --fw-700: 700;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-family-sans);
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+@media (max-width: 599px) {
+  .rules-modal {
+    position: fixed;
+    inset: 0; /* top: 0, right: 0, bottom: 0, left: 0 */
+    background: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1.5rem;
+    z-index: 100;
+  }
+  .rules-modal .rules-title {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--color-blue-500);
+  }
+  .rules-modal .rules-image {
+    max-width: 100%;
+    height: auto;
+  }
+  .rules-modal .rules-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-blue-500);
+    cursor: pointer;
+  }
+  .rules-modal.hidden {
+    display: none;
+  }
+}
+@media (min-width: 600px) and (max-width: 899px) {
+  .rules-modal {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .rules-modal > * {
+    background: var(--color-white);
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */
