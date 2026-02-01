@@ -323,9 +323,16 @@ header .score-box span:nth-child(2) {
   width: 100%;
   height: 280px;
 }
-.game.preseve-layout-hidden {
+.game.preserve-layout-hidden {
   visibility: hidden;
   pointer-events: none;
+  /* While the result UI is visible, remove the -50% horizontal centering
+  from the original `.rock` choice so it doesn't remain visually centered
+  in the (now-hidden) game container. The existing `.choice` transition on
+  `transform` will animate this change. */
+}
+.game.preserve-layout-hidden .rock {
+  transform: translateX(0);
 }
 
 .rules-btn {
