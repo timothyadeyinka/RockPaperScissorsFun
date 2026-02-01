@@ -5,12 +5,6 @@ export const SELECTORS = Object.freeze({
   closeRulesBtn: `.rules-close`,
 });
 
-export const RULES = Object.freeze({
-  rock: `scissors`,
-  scissors: `paper`,
-  paper: `rock`,
-});
-
 export const CSS = Object.freeze({
   bgRadial: `var(--bg-radial)`,
   colorPrimary: `var(--color-gold-500)`,
@@ -21,4 +15,20 @@ export const getElements = (doc = document, selectors = SELECTORS) => ({
   rulesModal: doc.querySelector(selectors.rulesModal),
   openRulesBtn: doc.querySelector(selectors.openRulesBtn),
   closeRulesBtn: doc.querySelector(selectors.closeRulesBtn),
+});
+
+// handling user choice clicks without mutating anything
+export const CHOICES = Object.freeze([`rock`, `paper`, `scissors`]);
+
+export const RULES = Object.freeze({
+  rock: `scissors`,
+  scissors: `paper`,
+  paper: `rock`,
+});
+
+export const initialState = Object.freeze({
+  score: 0,
+  playerChoice: null,
+  houseChoice: null,
+  result: null, // `win` | `lose` | `draw`
 });

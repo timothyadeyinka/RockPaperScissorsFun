@@ -51,6 +51,7 @@
 
 body {
   font-family: var(--font-family-sans);
+  background: var(--color-purple-700);
 }
 
 .choice {
@@ -150,6 +151,67 @@ body {
     transform: translateY(-3px);
   }
 }
+.hidden {
+  display: none;
+}
+
+.result {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4rem 1.5rem;
+  color: var(--color-white);
+  text-align: center;
+}
+
+.pick p {
+  margin-bottom: 1.5rem;
+  letter-spacing: 2px;
+  font-size: 0.8rem;
+}
+
+.picked {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: visible;
+}
+.picked .picked-choice {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+.picked .picked-choice .inner {
+  width: 86%;
+  height: 86%;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--color-white);
+  box-shadow: 0 18px rgba(0, 0, 0, 0.18);
+}
+.picked .picked-choice img {
+  width: 48px;
+}
+.picked .picked-choice.paper .inner {
+  background: linear-gradient(var(--color-blue-700), var(--color-blue-500));
+}
+.picked .picked-choice.scissors .inner {
+  background: linear-gradient(var(--color-gold-600), var(--color-gold-500));
+}
+.picked .picked-choice.rock .inner {
+  background: linear-gradient(var(--color-red-800), var(--color-red-600));
+}
+
+.placeholder {
+  background: rgba(0, 0, 0, 0.2);
+}
+
 .attribution {
   font-size: 11px;
   text-align: center;
@@ -218,6 +280,23 @@ body {
   }
   .rules-modal.hidden {
     display: none;
+  }
+  .outcome {
+    text-align: center;
+    color: var(--color-white);
+  }
+  .outcome-text {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  .outcome .play-again {
+    padding: 0.8rem 2.5rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    background: var(--color-white);
+    color: var(--color-navy-900);
+    letter-spacing: 2px;
   }
 }
 @media (min-width: 600px) and (max-width: 899px) {

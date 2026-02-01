@@ -33,7 +33,7 @@
 
       <div class="score-box">
         <span>SCORE</span>
-        <span>12</span>
+        <span class="score">12</span>
       </div>
     </header>
 
@@ -43,23 +43,40 @@
 
       <!-- buttons go here -->
       <!-- Choice buttons -->
-      <button class="choice paper">
+      <button class="choice paper" data-choice="paper">
         <span class="inner">
           <img src="images/icon-paper.svg" alt="Paper" />
         </span>
       </button>
 
-      <button class="choice scissors">
+      <button class="choice scissors" data-choice="scissors">
         <span class="inner">
           <img src="images/icon-scissors.svg" alt="Scissors" />
         </span>
       </button>
 
-      <button class="choice rock">
+      <button class="choice rock" data-choice="rock">
         <span class="inner">
           <img src="images/icon-rock.svg" alt="Rock" />
         </span>
       </button>
+    </div>
+
+    <div class="result hidden">
+      <div class="pick">
+        <p>YOU PICKED</p>
+        <div class="picked player-pick"></div>
+      </div>
+
+      <div class="outcome hidden">
+        <h2 class="outcome-text"></h2>
+        <button class="play-again">PLAY AGAIN</button>
+      </div>
+
+      <div class="pick">
+        <p>HOUSE PICKED</p>
+        <div class="picked house-pick"></div>
+      </div>
     </div>
 
     <div class="rules-modal hidden">
