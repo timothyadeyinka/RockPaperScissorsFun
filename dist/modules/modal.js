@@ -83,7 +83,7 @@ export const renderPicks = ({ playerChoice, houseChoice }) => {
   houseContainer.appendChild(createPick(houseChoice));
 
   // Toggle screens
-  game.classList.add(`hidden`);
+  game.classList.add(`preserve-layout-hidden`);
   result.classList.remove(`hidden`);
 };
 

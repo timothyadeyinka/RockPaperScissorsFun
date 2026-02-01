@@ -70,9 +70,9 @@ function renderPlayerPick(choice) {
   playerContainer.textContent = ``;
   playerContainer.appendChild(createPick(choice));
 
-  game.classList.add(`hidden`);
+  game.classList.add(`preserve-layout-hidden`);
   result.classList.remove(`hidden`);
-}
+} 
 
 function hideHousePick() {
   const houseContainer = document.querySelector(`.house-pick`);
@@ -112,10 +112,10 @@ function renderOutcome(result) {
 }
 
 function resetUI() {
-  document.querySelector(`.game`).classList.remove(`hidden`);
+  document.querySelector(`.game`).classList.remove(`preserve-layout-hidden`);
   document.querySelector(`.result`).classList.add(`hidden`);
   document.querySelector(`.outcome`).classList.add(`hidden`);
-}
+} 
 
 document.querySelector(`.play-again`).addEventListener(`click`, () => {
   gameState = initialState;

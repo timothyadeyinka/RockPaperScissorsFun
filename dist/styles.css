@@ -323,6 +323,10 @@ header .score-box span:nth-child(2) {
   width: 100%;
   height: 280px;
 }
+.game.preseve-layout-hidden {
+  visibility: hidden;
+  pointer-events: none;
+}
 
 .rules-btn {
   margin: 3rem auto;
