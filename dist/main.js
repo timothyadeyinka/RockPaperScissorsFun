@@ -60,7 +60,6 @@ function render(gameState) {
   // renderPicks(gameState);
   // updateScore(gameState.score);
   // renderOutcome(gameState.result);
-  // // showResult(gameState);
 }
 
 function renderPlayerPick(choice) {
