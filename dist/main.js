@@ -19,12 +19,12 @@ const choiceButtons = document.querySelectorAll(`.choice`);
 const openHandler = () => {
   modalState = modal.open(); // pure-ish (returns state)
   modal.apply(modalState);
-  document.querySelector(`.rules-btn`).style.display = `none`;
+  document.querySelector(`.rules-btn`).style.visibility = `hidden`;
 };
 const closeHandler = () => {
   modalState = modal.close();
   modal.apply(modalState);
-  document.querySelector(`.rules-btn`).style.display = `block`;
+  document.querySelector(`.rules-btn`).style.visibility = `visible`;
 };
 
 openRulesBtn?.addEventListener(`click`, openHandler);
