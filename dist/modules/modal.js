@@ -11,6 +11,11 @@ export const createModalController = (modalEl) => {
     modalEl.classList.toggle(`hidden`, !state.visible);
   };
 
+  // // desktop: center the modal content
+  // if (gameState.visible && window.innerWidth >= 1024) {
+  //   centerModal(modalEl);
+  // }
+
   // returns pure reducers + an apply function
   return { open, close, apply };
 };

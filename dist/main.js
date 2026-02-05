@@ -19,10 +19,12 @@ const choiceButtons = document.querySelectorAll(`.choice`);
 const openHandler = () => {
   modalState = modal.open(); // pure-ish (returns state)
   modal.apply(modalState);
+  document.querySelector(`.rules-btn`).style.display = `none`;
 };
 const closeHandler = () => {
   modalState = modal.close();
   modal.apply(modalState);
+  document.querySelector(`.rules-btn`).style.display = `block`;
 };
 
 openRulesBtn?.addEventListener(`click`, openHandler);
@@ -38,6 +40,7 @@ choiceButtons.forEach((button) => {
 
     gameState = playRound(gameState, playerChoice);
     render(gameState);
+    // game.style.display = `none`;
   });
 });
 
@@ -72,7 +75,7 @@ function renderPlayerPick(choice) {
 
   game.classList.add(`preserve-layout-hidden`);
   result.classList.remove(`hidden`);
-} 
+}
 
 function hideHousePick() {
   const houseContainer = document.querySelector(`.house-pick`);
@@ -115,9 +118,17 @@ function resetUI() {
   document.querySelector(`.game`).classList.remove(`preserve-layout-hidden`);
   document.querySelector(`.result`).classList.add(`hidden`);
   document.querySelector(`.outcome`).classList.add(`hidden`);
-} 
+}
 
 document.querySelector(`.play-again`).addEventListener(`click`, () => {
   gameState = initialState;
   resetUI();
+});
+
+window.addEventListener("resize", () => {
+  if (rulesModal && !rulesModal.classList.contains("hidden")) {
+    if (window.innerWidth >= 1024) {
+      centerModal(rulesModal);
+    }
+  }
 });

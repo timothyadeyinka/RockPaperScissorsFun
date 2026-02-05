@@ -49,11 +49,6 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: var(--font-family-sans);
-  background: var(--color-purple-700);
-}
-
 .choice {
   transition: transform 0.15s ease, box-shadow 0.15s ease;
   position: absolute;
@@ -125,19 +120,19 @@ body {
 }
 
 .paper {
-  top: -35px;
-  left: -20px;
+  top: 0;
+  left: -50px;
   box-shadow: inset 0 -6px var(--color-blue-700);
 }
 
 .scissors {
-  top: -35px;
-  right: -20px;
+  top: 0;
+  right: -50px;
   box-shadow: inset 0 -6px var(--color-gold-500);
 }
 
 .rock {
-  bottom: -30px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   box-shadow: inset 0 -6px var(--color-red-800);
@@ -156,21 +151,23 @@ body {
 }
 
 .result {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 4rem 1.5rem;
   color: var(--color-white);
   text-align: center;
 }
-
-.pick p {
+.result .feedback {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.result .state-feedback {
+  padding-top: 3.5rem;
+}
+.result .pick p {
   margin-bottom: 1.5rem;
   letter-spacing: 2px;
   font-size: 0.8rem;
 }
-
-.picked {
+.result .picked {
   width: 130px;
   height: 130px;
   border-radius: 50%;
@@ -179,14 +176,14 @@ body {
   position: relative;
   overflow: visible;
 }
-.picked .picked-choice {
+.result .picked .picked-choice {
   width: 100%;
   height: 100%;
   border-radius: 50%;
   display: grid;
   place-items: center;
 }
-.picked .picked-choice .inner {
+.result .picked .picked-choice .inner {
   width: 86%;
   height: 86%;
   border-radius: 50%;
@@ -195,16 +192,19 @@ body {
   background: var(--color-white);
   box-shadow: 0 18px rgba(0, 0, 0, 0.18);
 }
-.picked .picked-choice img {
+.result .picked .picked-choice img {
   width: 48px;
 }
-.picked .picked-choice.paper .inner {
+.result .picked .picked-choice.paper .inner {
   background: linear-gradient(var(--color-blue-700), var(--color-blue-500));
 }
-.picked .picked-choice.scissors .inner {
+.result .picked .picked-choice.scissors .inner {
   background: linear-gradient(var(--color-gold-600), var(--color-gold-500));
 }
-.picked .picked-choice.rock .inner {
+.result .picked .picked-choice.rock {
+  transform: translateX(0);
+}
+.result .picked .picked-choice.rock .inner {
   background: linear-gradient(var(--color-red-800), var(--color-red-600));
 }
 
@@ -212,44 +212,159 @@ body {
   background: rgba(0, 0, 0, 0.2);
 }
 
-.attribution {
-  font-size: 11px;
-  text-align: center;
+@media (max-width: 1099px) and (min-width: 1023px) {
+  .game .choice.paper {
+    top: -30%;
+    left: 5%;
+  }
+  .game .choice.scissors {
+    top: -30%;
+    right: 5%;
+  }
 }
-
-.attribution a {
-  color: hsl(228, 45%, 44%);
+@media (min-width: 1025px) {
+  .header {
+    max-width: 100%;
+  }
+  .game .choice.paper {
+    top: -15%;
+    left: 15%;
+  }
+  .game .choice.scissors {
+    top: -15%;
+    left: 68%;
+  }
 }
-
-@media (max-width: 599px) {
-  header {
+@media (min-width: 600px) {
+  body {
+    padding: 2rem 6.5rem;
+    justify-content: space-around;
+    max-width: 70%;
+    margin: 0 auto;
+  }
+  .header {
+    padding: 20px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 2px solid var(--color-light-blue-500);
+    border: 3px solid hsl(217, 16%, 45%);
+    border-radius: 15px;
+  }
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  .header {
+    max-width: 700px;
+  }
+}
+@media (min-width: 600px) {
+  .header .logo {
+    font-weight: 700;
+    line-height: 0.9;
+    font-size: 2rem;
+    color: white;
+  }
+  .header .score-box {
+    background: white;
+    padding: 15px 30px;
     border-radius: 10px;
-    padding: 1rem;
-    margin: 1.5rem;
-  }
-  header .logo {
-    font-size: 1rem;
-    line-height: 1.1;
-    color: var(--color-white);
-  }
-  header .score-box {
-    background: var(--color-white);
-    border-radius: 6px;
-    padding: 0.5rem 1.2rem;
     text-align: center;
   }
-  header .score-box span {
-    font-size: 0.6rem;
-    letter-spacing: 1px;
-    color: var(--color-blue-700);
+  .header .score-box p {
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: hsl(229, 64%, 46%);
   }
-  header .score-box span:nth-child(2) {
-    font-size: 2rem;
-    color: var(--color-blue-500);
+  .header .score-box h1 {
+    font-size: 3rem;
+    color: hsl(229, 25%, 31%);
+  }
+  .game {
+    width: 400px;
+    height: 350px;
+    margin: 80px auto;
+  }
+  .game .triangle {
+    background-size: cover;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: 300px;
+  }
+  .game .choice.rock {
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+@media (min-width: 600px) and (min-width: 1024px) and (orientation: portrait) {
+  .game .choice.paper {
+    top: -15%;
+    left: 15%;
+  }
+}
+@media (min-width: 600px) and (max-width: 1024px) and (orientation: portrait) {
+  .game .triangle {
+    height: 30rem;
+  }
+}
+@media (min-width: 600px) and (max-width: 1023px) {
+  .game .choice.paper {
+    top: -25%;
+    left: -5%;
+  }
+  .game .choice.scissors {
+    top: -25%;
+    left: 80%;
+  }
+  .game .choice::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 -6px rgba(0, 0, 0, 0.2);
+  }
+  .game .choice .inner {
+    width: 105px;
+    height: 105px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+  }
+}
+@media (min-width: 600px) {
+  .rules-modal {
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .rules-modal > * {
+    font-size: 4rem;
+    background: var(--color-white);
+  }
+  .rules-btn {
+    position: fixed;
+    padding: 10px 35px;
+    border: 2px solid white;
+    border-radius: 10px;
+    background: transparent;
+    color: white;
+    letter-spacing: 2px;
+  }
+  footer {
+    position: absolute;
+    right: 15%;
+    bottom: 10%;
+  }
+}
+@media (max-width: 599px) {
+  body {
+    justify-content: space-between;
+  }
+  .game {
+    max-width: 13.75rem;
+    margin: 0 auto;
+  }
+  .game .triangle {
+    height: 17.5rem;
   }
   .rules-modal {
     position: fixed;
@@ -299,13 +414,44 @@ body {
     letter-spacing: 2px;
   }
 }
-@media (min-width: 600px) and (max-width: 899px) {
-  .rules-modal {
-    background: rgba(0, 0, 0, 0.5);
-  }
-  .rules-modal > * {
-    background: var(--color-white);
-  }
+body {
+  font-family: var(--font-family-sans);
+  background: var(--color-navy-900);
+  padding: 2rem 1.5rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid var(--color-light-blue-500);
+  border-radius: 10px;
+  padding: 1rem;
+}
+header .logo {
+  font-size: 1.5rem;
+  line-height: 0.8;
+  color: var(--color-white);
+}
+header .score-box {
+  background: var(--color-white);
+  border-radius: 6px;
+  padding: 0.5rem 1.2rem;
+  text-align: center;
+}
+header .score-box span {
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 1px;
+  color: var(--color-blue-700);
+}
+header .score-box span:nth-child(2) {
+  font-size: 2rem;
+  color: var(--color-blue-500);
 }
 header .score-box span:nth-child(2) {
   font-weight: bold;
@@ -314,17 +460,14 @@ header .score-box span:nth-child(2) {
 .game {
   position: relative;
   width: 100%;
-  max-width: 320px;
-  margin: 4rem auto;
 }
 .game .triangle {
   background: url("images/bg-triangle.svg") no-repeat center;
   background-size: contain;
   width: 100%;
-  height: 280px;
 }
 .game.preserve-layout-hidden {
-  visibility: hidden;
+  display: none;
   pointer-events: none;
   /* While the result UI is visible, remove the -50% horizontal centering
   from the original `.rock` choice so it doesn't remain visually centered
@@ -335,9 +478,10 @@ header .score-box span:nth-child(2) {
   transform: translateX(0);
 }
 
-.rules-btn {
-  margin: 3rem auto;
-  display: block;
+footer {
+  text-align: center;
+}
+footer .rules-btn {
   padding: 0.8rem 2.5rem;
   background: transparent;
   border: 1px solid var(--color-white);
